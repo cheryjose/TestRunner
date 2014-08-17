@@ -1,0 +1,12 @@
+T:\MS Projects\TestRunner\TestRunner\TestRunner\bin\Debug\TestRunner.exe
+T:\MS Projects\TestRunner\TestRunner\TestRunner\bin\Debug\TestRunner.pdb
+T:\MS Projects\TestRunner\TestRunner\TestRunner\bin\Debug\nunit.framework.dll
+T:\MS Projects\TestRunner\TestRunner\TestRunner\bin\Debug\nunit.framework.xml
+T:\MS Projects\TestRunner\TestRunner\TestRunner\obj\x86\Debug\TestRunner.csprojResolveAssemblyReference.cache
+T:\MS Projects\TestRunner\TestRunner\TestRunner\obj\x86\Debug\TestRunner.Properties.Resources.resources
+T:\MS Projects\TestRunner\TestRunner\TestRunner\obj\x86\Debug\TestRunner.csproj.GenerateResource.Cache
+T:\MS Projects\TestRunner\TestRunner\TestRunner\obj\x86\Debug\TestRunner.exe
+T:\MS Projects\TestRunner\TestRunner\TestRunner\obj\x86\Debug\TestRunner.pdb
+T:\MS Projects\TestRunner\TestRunner\TestRunner\obj\x86\Debug\TestRunner.TestRunner.resources
+T:\MS Projects\TestRunner\TestRunner\TestRunner\bin\Debug\nunit.core.dll
+T:\MS Projects\TestRunner\TestRunner\TestRunner\bin\Debug\nunit.core.interfaces.dll
