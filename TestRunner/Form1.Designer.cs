@@ -44,6 +44,7 @@
             this.SetUpLabel = new System.Windows.Forms.Label();
             this.TearDownLabel = new System.Windows.Forms.Label();
             this.preConditionButton = new System.Windows.Forms.Button();
+            this.startUpTxtBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // locateDllButton
@@ -186,18 +187,28 @@
             // 
             // preConditionButton
             // 
+            this.preConditionButton.Enabled = false;
             this.preConditionButton.Location = new System.Drawing.Point(42, 310);
             this.preConditionButton.Name = "preConditionButton";
             this.preConditionButton.Size = new System.Drawing.Size(52, 25);
             this.preConditionButton.TabIndex = 14;
             this.preConditionButton.Text = "StartUpTest";
             this.preConditionButton.UseVisualStyleBackColor = true;
+            this.preConditionButton.Click += new System.EventHandler(this.preConditionButton_Click);
+            // 
+            // startUpTxtBox
+            // 
+            this.startUpTxtBox.Location = new System.Drawing.Point(124, 313);
+            this.startUpTxtBox.Name = "startUpTxtBox";
+            this.startUpTxtBox.Size = new System.Drawing.Size(235, 20);
+            this.startUpTxtBox.TabIndex = 15;
             // 
             // TestRunner
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(840, 496);
+            this.Controls.Add(this.startUpTxtBox);
             this.Controls.Add(this.preConditionButton);
             this.Controls.Add(this.TearDownLabel);
             this.Controls.Add(this.SetUpLabel);
@@ -239,6 +250,7 @@
         private System.Windows.Forms.Label SetUpLabel;
         private System.Windows.Forms.Label TearDownLabel;
         private System.Windows.Forms.Button preConditionButton;
+        private System.Windows.Forms.TextBox startUpTxtBox;
     }
 }
 

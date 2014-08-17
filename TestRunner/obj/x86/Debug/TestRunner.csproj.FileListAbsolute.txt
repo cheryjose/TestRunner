@@ -10,3 +10,4 @@ T:\MS Projects\TestRunner\TestRunner\TestRunner\obj\x86\Debug\TestRunner.pdb
 T:\MS Projects\TestRunner\TestRunner\TestRunner\obj\x86\Debug\TestRunner.TestRunner.resources
 T:\MS Projects\TestRunner\TestRunner\TestRunner\bin\Debug\nunit.core.dll
 T:\MS Projects\TestRunner\TestRunner\TestRunner\bin\Debug\nunit.core.interfaces.dll
+T:\MS Projects\TestRunner\TestRunner\TestRunner\obj\x86\Debug\TestRunner.Form2.resources

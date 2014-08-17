@@ -14,6 +14,10 @@ namespace TestRunner
 {
     public partial class TestRunner : Form
     {
+        public List<string> AttributeTypesMatchListBoxDataSource = new List<string>();
+        public List<string> TestsListBoxDataSource = new List<string>();
+        public List<string> SetUpListBoxDataSource = new List<string>();
+        public List<string> TearDownListBoxDataSource = new List<string>();
         private readonly AssemblyOperations _assemblyOperations;
         private TestRun _testRun;
         public TestRunner()
@@ -36,10 +40,14 @@ namespace TestRunner
                 LocatedDllTxtBox.Text = fileName;
                 TypesListBox.DataSource = _assemblyOperations.GetAllAssemblyTypes(fileName);
                 var testFixtureTypes = _assemblyOperations.GetTypesWithSpecifiedCustomAttributes(fileName);
-                AttributeTypesMatchListBox.DataSource = testFixtureTypes;
-                TestsListBox.DataSource = _assemblyOperations.GetNunitMethodsForSpecifiedTypeAndAttribute(testFixtureTypes[0]);
-                SetUpListBox.DataSource = _assemblyOperations.GetNunitMethodsForSpecifiedTypeAndAttribute(testFixtureTypes[0], "SetUpAttribute");
-                TearDownListBox.DataSource = _assemblyOperations.GetNunitMethodsForSpecifiedTypeAndAttribute(testFixtureTypes[0], "TearDownAttribute");
+                AttributeTypesMatchListBoxDataSource = testFixtureTypes.ConvertAll<string>(x =>x.ToString());
+                AttributeTypesMatchListBox.DataSource = AttributeTypesMatchListBoxDataSource;
+                TestsListBoxDataSource = _assemblyOperations.GetNunitMethodsForSpecifiedTypeAndAttribute(testFixtureTypes[0]);
+                TestsListBox.DataSource = TestsListBoxDataSource;
+                SetUpListBoxDataSource = _assemblyOperations.GetNunitMethodsForSpecifiedTypeAndAttribute(testFixtureTypes[0], "SetUpAttribute");
+                SetUpListBox.DataSource = SetUpListBoxDataSource;
+                TearDownListBoxDataSource = _assemblyOperations.GetNunitMethodsForSpecifiedTypeAndAttribute(testFixtureTypes[0], "TearDownAttribute");
+                TearDownListBox.DataSource = TearDownListBoxDataSource;
             }
             else
             {
@@ -82,6 +90,13 @@ namespace TestRunner
         private void SelectedTextBox_TextChanged(object sender, EventArgs e)
         {
             runTestButton.Enabled = true;
+            preConditionButton.Enabled = true;
+        }
+
+        private void preConditionButton_Click(object sender, EventArgs e)
+        {
+            Form2 form2 = new Form2(AttributeTypesMatchListBoxDataSource, TestsListBoxDataSource);
+            form2.Show();
         }
 
     }
