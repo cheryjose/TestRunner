@@ -1,6 +1,6 @@
 ﻿namespace TestRunner
 {
-    partial class Form2
+    partial class SetUpSelection
     {
         /// <summary>
         /// Required designer variable.
@@ -31,11 +31,13 @@
             this.TestsListBox = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.TestFixtureClassLabel = new System.Windows.Forms.Label();
-            this.AttributeTypesMatchListBox = new System.Windows.Forms.ListBox();
+            this.TestFixtureClasses = new System.Windows.Forms.ListBox();
+            this.OkButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // TestsListBox
             // 
+            this.TestsListBox.BackColor = System.Drawing.SystemColors.ControlLight;
             this.TestsListBox.FormattingEnabled = true;
             this.TestsListBox.HorizontalScrollbar = true;
             this.TestsListBox.Location = new System.Drawing.Point(74, 163);
@@ -47,7 +49,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.label1.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.label1.Location = new System.Drawing.Point(71, 137);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(63, 13);
@@ -57,34 +59,48 @@
             // TestFixtureClassLabel
             // 
             this.TestFixtureClassLabel.AutoSize = true;
-            this.TestFixtureClassLabel.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.TestFixtureClassLabel.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.TestFixtureClassLabel.Location = new System.Drawing.Point(71, 6);
             this.TestFixtureClassLabel.Name = "TestFixtureClassLabel";
             this.TestFixtureClassLabel.Size = new System.Drawing.Size(98, 13);
             this.TestFixtureClassLabel.TabIndex = 11;
             this.TestFixtureClassLabel.Text = "TestFixture Classes";
             // 
-            // AttributeTypesMatchListBox
+            // TestFixtureClasses
             // 
-            this.AttributeTypesMatchListBox.FormattingEnabled = true;
-            this.AttributeTypesMatchListBox.HorizontalScrollbar = true;
-            this.AttributeTypesMatchListBox.Location = new System.Drawing.Point(74, 31);
-            this.AttributeTypesMatchListBox.Name = "AttributeTypesMatchListBox";
-            this.AttributeTypesMatchListBox.Size = new System.Drawing.Size(311, 69);
-            this.AttributeTypesMatchListBox.TabIndex = 10;
+            this.TestFixtureClasses.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.TestFixtureClasses.FormattingEnabled = true;
+            this.TestFixtureClasses.HorizontalScrollbar = true;
+            this.TestFixtureClasses.Location = new System.Drawing.Point(74, 31);
+            this.TestFixtureClasses.Name = "TestFixtureClasses";
+            this.TestFixtureClasses.Size = new System.Drawing.Size(311, 69);
+            this.TestFixtureClasses.TabIndex = 10;
+            this.TestFixtureClasses.SelectedIndexChanged += new System.EventHandler(this.AttributeTypesMatchListBox_SelectedIndexChanged);
             // 
-            // Form2
+            // OkButton
+            // 
+            this.OkButton.Location = new System.Drawing.Point(168, 271);
+            this.OkButton.Name = "OkButton";
+            this.OkButton.Size = new System.Drawing.Size(75, 23);
+            this.OkButton.TabIndex = 12;
+            this.OkButton.Text = "OK";
+            this.OkButton.UseVisualStyleBackColor = true;
+            this.OkButton.Click += new System.EventHandler(this.OkButton_Click);
+            // 
+            // SetUpSelection
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.ClientSize = new System.Drawing.Size(456, 316);
+            this.Controls.Add(this.OkButton);
             this.Controls.Add(this.TestFixtureClassLabel);
-            this.Controls.Add(this.AttributeTypesMatchListBox);
+            this.Controls.Add(this.TestFixtureClasses);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.TestsListBox);
-            this.Name = "Form2";
-            this.Text = "Form2";
-            this.Load += new System.EventHandler(this.Form2_Load);
+            this.Name = "SetUpSelection";
+            this.Text = "SetUp Selection";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.SetUpSelection_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -95,6 +111,7 @@
         private System.Windows.Forms.ListBox TestsListBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label TestFixtureClassLabel;
-        private System.Windows.Forms.ListBox AttributeTypesMatchListBox;
+        private System.Windows.Forms.ListBox TestFixtureClasses;
+        private System.Windows.Forms.Button OkButton;
     }
 }

@@ -80,5 +80,11 @@ namespace TestRunner.AssemblyFunctions
             }
             return tests;
         }
+
+        public Type GetTypeSetupFixtureClass(string setupFixtureClass, List<Type> setuFixtureTypes)
+        {
+            var setupFixtureType = setuFixtureTypes.Find(x => x.ToString().Equals(setupFixtureClass, StringComparison.OrdinalIgnoreCase));
+            return setupFixtureType;
+        }
     }
 }

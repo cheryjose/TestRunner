@@ -49,6 +49,7 @@
             // 
             // locateDllButton
             // 
+            this.locateDllButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.locateDllButton.Location = new System.Drawing.Point(12, 32);
             this.locateDllButton.Name = "locateDllButton";
             this.locateDllButton.Size = new System.Drawing.Size(97, 24);
@@ -71,6 +72,7 @@
             // 
             // TypesListBox
             // 
+            this.TypesListBox.BackColor = System.Drawing.SystemColors.ControlLight;
             this.TypesListBox.FormattingEnabled = true;
             this.TypesListBox.HorizontalScrollbar = true;
             this.TypesListBox.Location = new System.Drawing.Point(23, 105);
@@ -80,6 +82,7 @@
             // 
             // AttributeTypesMatchListBox
             // 
+            this.AttributeTypesMatchListBox.BackColor = System.Drawing.SystemColors.ControlLight;
             this.AttributeTypesMatchListBox.FormattingEnabled = true;
             this.AttributeTypesMatchListBox.HorizontalScrollbar = true;
             this.AttributeTypesMatchListBox.Location = new System.Drawing.Point(363, 105);
@@ -90,6 +93,7 @@
             // 
             // TestsListBox
             // 
+            this.TestsListBox.BackColor = System.Drawing.SystemColors.ControlLight;
             this.TestsListBox.FormattingEnabled = true;
             this.TestsListBox.HorizontalScrollbar = true;
             this.TestsListBox.Location = new System.Drawing.Point(23, 218);
@@ -120,7 +124,7 @@
             // NUnitTestsLabel
             // 
             this.NUnitTestsLabel.AutoSize = true;
-            this.NUnitTestsLabel.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.NUnitTestsLabel.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.NUnitTestsLabel.Location = new System.Drawing.Point(20, 192);
             this.NUnitTestsLabel.Name = "NUnitTestsLabel";
             this.NUnitTestsLabel.Size = new System.Drawing.Size(63, 13);
@@ -130,7 +134,7 @@
             // TypeLabel
             // 
             this.TypeLabel.AutoSize = true;
-            this.TypeLabel.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.TypeLabel.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.TypeLabel.Location = new System.Drawing.Point(20, 80);
             this.TypeLabel.Name = "TypeLabel";
             this.TypeLabel.Size = new System.Drawing.Size(43, 13);
@@ -140,7 +144,7 @@
             // TestFixtureClassLabel
             // 
             this.TestFixtureClassLabel.AutoSize = true;
-            this.TestFixtureClassLabel.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.TestFixtureClassLabel.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.TestFixtureClassLabel.Location = new System.Drawing.Point(360, 80);
             this.TestFixtureClassLabel.Name = "TestFixtureClassLabel";
             this.TestFixtureClassLabel.Size = new System.Drawing.Size(98, 13);
@@ -149,6 +153,7 @@
             // 
             // SetUpListBox
             // 
+            this.SetUpListBox.BackColor = System.Drawing.SystemColors.ControlLight;
             this.SetUpListBox.FormattingEnabled = true;
             this.SetUpListBox.HorizontalScrollbar = true;
             this.SetUpListBox.Location = new System.Drawing.Point(296, 218);
@@ -158,6 +163,7 @@
             // 
             // TearDownListBox
             // 
+            this.TearDownListBox.BackColor = System.Drawing.SystemColors.ControlLight;
             this.TearDownListBox.FormattingEnabled = true;
             this.TearDownListBox.HorizontalScrollbar = true;
             this.TearDownListBox.Location = new System.Drawing.Point(568, 218);
@@ -168,7 +174,7 @@
             // SetUpLabel
             // 
             this.SetUpLabel.AutoSize = true;
-            this.SetUpLabel.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.SetUpLabel.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.SetUpLabel.Location = new System.Drawing.Point(293, 192);
             this.SetUpLabel.Name = "SetUpLabel";
             this.SetUpLabel.Size = new System.Drawing.Size(37, 13);
@@ -178,7 +184,7 @@
             // TearDownLabel
             // 
             this.TearDownLabel.AutoSize = true;
-            this.TearDownLabel.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.TearDownLabel.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.TearDownLabel.Location = new System.Drawing.Point(565, 192);
             this.TearDownLabel.Name = "TearDownLabel";
             this.TearDownLabel.Size = new System.Drawing.Size(57, 13);
@@ -188,9 +194,9 @@
             // preConditionButton
             // 
             this.preConditionButton.Enabled = false;
-            this.preConditionButton.Location = new System.Drawing.Point(42, 310);
+            this.preConditionButton.Location = new System.Drawing.Point(12, 310);
             this.preConditionButton.Name = "preConditionButton";
-            this.preConditionButton.Size = new System.Drawing.Size(52, 25);
+            this.preConditionButton.Size = new System.Drawing.Size(97, 25);
             this.preConditionButton.TabIndex = 14;
             this.preConditionButton.Text = "StartUpTest";
             this.preConditionButton.UseVisualStyleBackColor = true;
@@ -207,6 +213,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.ClientSize = new System.Drawing.Size(840, 496);
             this.Controls.Add(this.startUpTxtBox);
             this.Controls.Add(this.preConditionButton);
@@ -250,7 +257,7 @@
         private System.Windows.Forms.Label SetUpLabel;
         private System.Windows.Forms.Label TearDownLabel;
         private System.Windows.Forms.Button preConditionButton;
-        private System.Windows.Forms.TextBox startUpTxtBox;
+        internal System.Windows.Forms.TextBox startUpTxtBox;
     }
 }
 

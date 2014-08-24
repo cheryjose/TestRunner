@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reflection;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -18,8 +19,12 @@ namespace TestRunner
         public List<string> TestsListBoxDataSource = new List<string>();
         public List<string> SetUpListBoxDataSource = new List<string>();
         public List<string> TearDownListBoxDataSource = new List<string>();
-        private readonly AssemblyOperations _assemblyOperations;
+        internal readonly AssemblyOperations _assemblyOperations;
+        public string setupSelectedTestFixtureClass;
+        public string setupSelected;
         private TestRun _testRun;
+        internal string FileName;
+        internal List<Type> TestFixtureTypes;
         public TestRunner()
         {
             InitializeComponent();
@@ -34,19 +39,19 @@ namespace TestRunner
         private void button1_Click(object sender, EventArgs e)
         {
             openFileDialog1.ShowDialog();
-            var fileName = openFileDialog1.FileName;
-            if (fileName.EndsWith(".dll", StringComparison.OrdinalIgnoreCase))
+            FileName = openFileDialog1.FileName;
+            if (FileName.EndsWith(".dll", StringComparison.OrdinalIgnoreCase))
             {
-                LocatedDllTxtBox.Text = fileName;
-                TypesListBox.DataSource = _assemblyOperations.GetAllAssemblyTypes(fileName);
-                var testFixtureTypes = _assemblyOperations.GetTypesWithSpecifiedCustomAttributes(fileName);
-                AttributeTypesMatchListBoxDataSource = testFixtureTypes.ConvertAll<string>(x =>x.ToString());
+                LocatedDllTxtBox.Text = FileName;
+                TypesListBox.DataSource = _assemblyOperations.GetAllAssemblyTypes(FileName);
+                TestFixtureTypes = _assemblyOperations.GetTypesWithSpecifiedCustomAttributes(FileName);
+                AttributeTypesMatchListBoxDataSource = TestFixtureTypes.ConvertAll<string>(x => x.ToString());
                 AttributeTypesMatchListBox.DataSource = AttributeTypesMatchListBoxDataSource;
-                TestsListBoxDataSource = _assemblyOperations.GetNunitMethodsForSpecifiedTypeAndAttribute(testFixtureTypes[0]);
+                TestsListBoxDataSource = _assemblyOperations.GetNunitMethodsForSpecifiedTypeAndAttribute(TestFixtureTypes[0]);
                 TestsListBox.DataSource = TestsListBoxDataSource;
-                SetUpListBoxDataSource = _assemblyOperations.GetNunitMethodsForSpecifiedTypeAndAttribute(testFixtureTypes[0], "SetUpAttribute");
+                SetUpListBoxDataSource = _assemblyOperations.GetNunitMethodsForSpecifiedTypeAndAttribute(TestFixtureTypes[0], "SetUpAttribute");
                 SetUpListBox.DataSource = SetUpListBoxDataSource;
-                TearDownListBoxDataSource = _assemblyOperations.GetNunitMethodsForSpecifiedTypeAndAttribute(testFixtureTypes[0], "TearDownAttribute");
+                TearDownListBoxDataSource = _assemblyOperations.GetNunitMethodsForSpecifiedTypeAndAttribute(TestFixtureTypes[0], "TearDownAttribute");
                 TearDownListBox.DataSource = TearDownListBoxDataSource;
             }
             else
@@ -63,7 +68,9 @@ namespace TestRunner
 
         private void TypesWithAttributeListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            var textFixtureListBoxSelection = AttributeTypesMatchListBox.SelectedItem.ToString();
+            var setupFixtureClassSelected = _assemblyOperations.GetTypeSetupFixtureClass(textFixtureListBoxSelection, TestFixtureTypes);
+            TestsListBox.DataSource = _assemblyOperations.GetNunitMethodsForSpecifiedTypeAndAttribute(setupFixtureClassSelected);
         }
 
         private void TestsListBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -78,7 +85,9 @@ namespace TestRunner
             {
                 var packageLocation = LocatedDllTxtBox.Text;
                 _testRun = new TestRun(packageLocation);
+                var startUpTestName = startUpTxtBox.Text.Replace("Void", "").Replace("()", "").Trim();
                 var testName = SelectedTextBox.Text.Replace("Void", "").Replace("()","").Trim();
+                _testRun.RunTest(startUpTestName);
                 _testRun.RunTest(testName);
             }
             else
@@ -95,7 +104,7 @@ namespace TestRunner
 
         private void preConditionButton_Click(object sender, EventArgs e)
         {
-            Form2 form2 = new Form2(AttributeTypesMatchListBoxDataSource, TestsListBoxDataSource);
+            SetUpSelection form2 = new SetUpSelection(this);
             form2.Show();
         }
 
